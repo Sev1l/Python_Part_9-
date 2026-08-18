@@ -1,8 +1,6 @@
 ## Objects as attributes
 # Task 1 (Pets)
 
-
-
 class Pet:
     def __init__(self,name,kind):
         self.name = name
@@ -22,3 +20,5 @@ hulda = Pet("Hulda", "mixed-breed dog")
 levi = Person("Levi", hulda)
 
 print(levi)
+
+
