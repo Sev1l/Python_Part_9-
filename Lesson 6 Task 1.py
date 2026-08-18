@@ -1,7 +1,6 @@
 ## More examples with classes
 # Task 1 (Item, Suitcase and Cargo hold)
 
-
 class Item:
     def __init__(self,name,weight):
         self.__name = name
