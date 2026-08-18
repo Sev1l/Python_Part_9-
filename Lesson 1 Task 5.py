@@ -9,37 +9,31 @@ class RealProperty:
         self.square_metres = square_metres
         self.price_per_sqm = price_per_sqm
 
+    def _total_price(self):
+        return self.square_metres * self.price_per_sqm
+
     def bigger(self, compared_to):
-        if self.square_metres > compared_to.square_metres:
-            return True
-        else:
-            return False
+        return self.square_metres > compared_to.square_metres
+
     def price_difference(self, compared_to):
-        final1 = self.square_metres * self.price_per_sqm
-        final2 = compared_to.square_metres * compared_to.price_per_sqm
-        if final1 > final2 :
+        final1 = self._total_price()
+        final2 = compared_to._total_price()
+        if final1 > final2:
             return final1 - final2
         else:
             return final2 - final1
 
     def more_expensive(self, compared_to):
-        final1 = self.square_metres * self.price_per_sqm
-        final2 = compared_to.square_metres * compared_to.price_per_sqm
-        if final1 > final2 :
-            return True
-        else:
-            return False
+        return self._total_price() > compared_to._total_price()
+
 
 central_studio = RealProperty(1, 16, 5500)
 downtown_two_bedroom = RealProperty(2, 38, 4200)
 suburbs_three_bedroom = RealProperty(3, 78, 2500)
-
 print(central_studio.more_expensive(downtown_two_bedroom))
 print(suburbs_three_bedroom.more_expensive(downtown_two_bedroom))
-
 print(central_studio.price_difference(downtown_two_bedroom))
 print(suburbs_three_bedroom.price_difference(downtown_two_bedroom))
-
-
 print(central_studio.bigger(downtown_two_bedroom))
 print(suburbs_three_bedroom.bigger(downtown_two_bedroom))
+
