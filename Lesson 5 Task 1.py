@@ -2,24 +2,24 @@
 # Task 1 (List Helper)
 
 
+from collections import Counter
+
+
 class ListHelper:
     @staticmethod
-    def greatest_frequency(my_list:list):
-        counts = 0
-        number = 0
-        for i in my_list:
-            if counts < my_list.count(i):
-                counts = my_list.count(i)
-                number = i
-        return number
-    @staticmethod
-    def doubles(my_list:list):
-        for i in my_list:
-            if my_list.count(i) == 2:
-                return i
+    def greatest_frequency(my_list: list):
+        counts = Counter(my_list)
+        return counts.most_common(1)[0][0]
 
+    @staticmethod
+    def doubles(my_list: list):
+        counts = Counter(my_list)
+        for item, count in counts.items():
+            if count == 2:
+                return item
 
 
 numbers = [1, 1, 2, 1, 3, 3, 4, 5, 5, 5, 6, 5, 5, 5]
 print(ListHelper.greatest_frequency(numbers))
 print(ListHelper.doubles(numbers))
+
