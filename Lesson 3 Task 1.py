@@ -2,26 +2,23 @@
 # Task 1 (Car)
 
 
+# Task 1 (Car)
 class Car:
     def __init__(self):
         self.km = 0
-        self.l = 0
-    def fill_up(self):
-        self.l += 60
-        if self.l > 60:
-            self.l = 60
+        self.fuel = 0
 
-    def drive(self,km):
-        if self.l >= km:
-            self.km += km
-            self.l -= km
-        else:
-            extra = km - self.l
-            self.l = 0
-            self.km += km - extra
+    def fill_up(self):
+        self.fuel = min(self.fuel + 60, 60)
+
+    def drive(self, km):
+        actual = min(km, self.fuel)
+        self.km += actual
+        self.fuel -= actual
 
     def __str__(self):
-        return f'Car: odometer reading {self.km} km, petrol remaining {self.l} litres'
+        return f'Car: odometer reading {self.km} km, petrol remaining {self.fuel} litres'
+
 
 car = Car()
 print(car)
