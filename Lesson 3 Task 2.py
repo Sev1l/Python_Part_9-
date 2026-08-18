@@ -2,7 +2,6 @@
 # Task 2 (Recording)
 
 
-
 class Recording:
     def __init__(self, length):
         self.length = length  
